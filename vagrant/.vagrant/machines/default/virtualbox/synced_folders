@@ -1,0 +1,1 @@
+{"virtualbox":{"/targets":{"guestpath":"/targets","hostpath":"/Users/mic/Projects/lab-box/targets","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/mic/Projects/lab-box/vagrant","disabled":false,"__vagrantfile":true}}}

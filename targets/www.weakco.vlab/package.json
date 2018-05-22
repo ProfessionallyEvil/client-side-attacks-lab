@@ -1,0 +1,7 @@
+{
+  "name": "www.weakco.local",
+  "version": "1.0.0",
+  "description": "Weak company application",
+  "main": "index.js",
+  "license": "MIT"
+}
