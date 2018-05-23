@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="/assets/css/bulma.min.css" />
   <script defer type="text/javascript" src="/assets/js/fontawesome-all.min.js"></script>
 </head>
+
 <body>
 
   <section class="hero is-light is-bold">
@@ -24,159 +26,190 @@
     </div>
   </section>
 
-<section class="section">
-  <div class="columns">
-    <div class="column">
-      <h3 class="subtitle is-3">Handouts</h3>
-      The handouts below are quick-references containing the information required
-      to complete the exercises. Their general intent is to provide you with take-home
-      so that you don't have to if you don't want to.
-      <table class="table is-hoverable">
-      <tbody>
-        <tr>
-          <td><strong>JavaScript Basics</strong></td>
-          <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
-        </tr>
-        <tr>
-          <td><strong>Common JavaScript DOM Manipulation</strong></td>
-          <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
-        </tr>
-        <tr>
-          <td><strong>Offensive CSS</strong></td>
-          <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
-        </tr>
-        <tr>
-          <td><strong>Cross-Origin Resource Sharing</strong></td>
-          <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
-        </tr>
-        <tr>
-          <td><strong>Lab 1</strong></td>
-          <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
-        </tr>
-        <tr>
-          <td><strong>All of the Above</strong></td>
-          <td><a class="button is-info">acsa-circlecity18-handouts.zip</a></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
-    <div class="column">
-      <h3 class="subtitle is-3">Lab Environment</h3>
-      <ul>
-        <li><strong>help.vlab</strong> &mdash; This site.</li>
-        <li>
-        <a href="./codeground.html">
-          <strong>Codeground</strong></a> &mdash;
-          Browser-based code playground, hosted on help.vlab. Project by Cody Pearce &mdash;
-          <a href="https://github.com/codypearce/codegroundjs"><i class="fab fa-github"></i> Git Repo</a>
-        </li>
-        <li>
-          <a href="http://api.weakco.vlab"><strong>api.weakco.vlab</strong></a>
-           &mdash; A RESTful API target.
-        </li>
-        <li>
-          <a href="http://www.weakco.vlab"><strong>www.weakco.vlab</strong></a>
-           &mdash; A web app target.
-        </li>
-        <li>
-          <a href="http://evilhacker.vlab"><strong>evilhacker.vlab</strong></a>
-           &mdash; The attacker's (your) server for staging payloads.
-        </li>
-    </ul>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-  <h3 class="subtitle is-3">About the Trainer</h3>
-
-    <div class="columns"><div class="column">
-
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="/assets/images/mic.jpg" alt="Mic">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4">Mic Whitehorn-Gillam</p>
-          <p class="subtitle">
-          <nav class="level">
-            <div class="level-left">
-            <div class="level-item">
-              <span class="icon">
-              <i class="fab fa-twitter"></span></i>
-              <a href="https://twitter.com/mic_wg">@mic_wg</a>
+  <section class="section">
+    <div class="columns">
+      <div class="column">
+        <!--Card-->
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Handouts
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              The handouts below are quick-references containing the information required to complete the exercises. Their general intent is to provide you with take-home so that you don't have to take notes if you don't want to.
+              <table class="table is-hoverable">
+                <tbody>
+                  <tr>
+                    <td><strong>JavaScript Basics</strong></td>
+                    <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Common JavaScript DOM Manipulation</strong></td>
+                    <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Offensive CSS</strong></td>
+                    <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Cross-Origin Resource Sharing</strong></td>
+                    <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Lab 1</strong></td>
+                    <td><a class="button is-dark">View</a> <a class="button is-link">Markdown</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>All of the Above</strong></td>
+                    <td><a class="button is-info">acsa-circlecity18-handouts.zip</a></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="level-item">
-              <span class="icon">
-                <i class="fas fa-envelope"></span></i>
-                mic@secureideas.com
-            </div></div>
-          </nav>
-          </p>
-        </div>
-      </div>
-      <div class="content">
-        Mic started coding at a young age, in the era a 5.25" floppy disks and
-        4-color displays. Some time later, he found his way to the internet and
-        almost immediately started building websites. A decade later, he finally
-         started to get paid to do just that. After another decade as a
-         full-stack web dev, he crossed into info security &mdash; primarily on
-         web and mobile app pen-testing, which is where he's stayed for the past
-          couple years. Mic currently works as a Senior Security Consultant for
-          <strong>Secure Ideas</strong>.
-      </div>
-      </div>
-    </div>
-
-  </div><div class="column">
-
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="/assets/images/lock.png" alt="Secure Ideas Logo">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4">Secure Ideas</p>
-          <p class="subtitle">
-          <nav class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <span class="icon">
-                <i class="fas fa-globe"></span></i>
-                <a href="https://www.secureideas.com">secureideas.com</a>
-              </div>
           </div>
-          </nav>
-          </p>
+        </div>
+        <!---->
+      </div>
+      <div class="column">
+
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">Lab Environment</p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <ul>
+                <li><a href="./host_entries.txt" target="_blank"><strong>host_entries</strong></a> &mdash; If you're not using a proxy, these can go in your hosts file on your host machine to let you access the targets by hostname rather than port numbers.</li>
+                <li><strong>help.vlab</strong> &mdash; This site.</li>
+                <li>
+                  <a href="./codeground.html">
+              <strong>Codeground</strong></a> &mdash; Browser-based code playground, hosted on help.vlab. Project by Cody Pearce &mdash;
+                  <a href="https://github.com/codypearce/codegroundjs"><i class="fab fa-github"></i> Git Repo</a>
+                </li>
+                <li>
+                  <a href="http://api.weakco.vlab"><strong>api.weakco.vlab</strong></a> &mdash; A RESTful API target.
+                </li>
+                <li>
+                  <a href="http://www.weakco.vlab"><strong>www.weakco.vlab</strong></a> &mdash; A web app target.
+                </li>
+                <li>
+                  <a href="http://evilhacker.vlab"><strong>evilhacker.vlab</strong></a> &mdash; The attacker's (your) server for staging payloads.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">External Resources</p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <ul>
+                <li><a href="https://portswigger.net/burp" target="_blank"><strong>Burp Suite</strong></a> &mdash; Man-in-the-middle proxy. Not essential for the class, but may simplify troubleshooting <em>and</em> lets you map the lab's hostnames to IPs
+                  without adding entries to your hosts file.</li>
+                <li><a href="https://atom.io/" target="_blank"><strong>Atom</strong></a> &mdash; Reasonable cross-platform code editor. You should use your favorite code editor (that supports web stuff) for class. But if you don't have a favorite, Atom is
+                  a free and easy option.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="content">
-        <p>Secure Ideas is an independent security-consulting and penetration
-          testing firm focused on providing organizations with the services and
-          knowledge needed to improve the security posture of their computing
-          and network environment. Our services are designed to not just identify
-           vulnerabilities, but to provide actionable recommendations and to
-           promote a <em>Security State of Mind</em>.</p>
-
-       <p>
-The core of our service offerings is comprised of a talented team of Security Consultants and Penetration Testers who have experience with security assessments for networks, web applications, mobile apps, social engineering, physical security, embedded, wireless and more.
-</p>
-
-      </div>
-      </div>
     </div>
+  </section>
 
-</div></div>
+  <footer>
+    <div class="container">
+      <h3 class="subtitle is-3">About the Trainer</h3>
 
-</div>
-</footer>
+      <div class="columns">
+        <div class="column">
+
+          <div class="card">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="/assets/images/mic.jpg" alt="Mic">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">Mic Whitehorn-Gillam</p>
+                  <p class="subtitle">
+                    <nav class="level">
+                      <div class="level-left">
+                        <div class="level-item">
+                          <span class="icon">
+              <i class="fab fa-twitter"></span></i>
+                          <a href="https://twitter.com/mic_wg">@mic_wg</a>
+                        </div>
+                        <div class="level-item">
+                          <span class="icon">
+                <i class="fas fa-envelope"></span></i>
+                          mic@secureideas.com
+                        </div>
+                      </div>
+                    </nav>
+                  </p>
+                </div>
+              </div>
+              <div class="content">
+                Mic started coding at a young age, in the era a 5.25" floppy disks and 4-color displays. Some time later, he found his way to the internet and almost immediately started building websites. A decade later, he finally started to get paid to do just that.
+                After another decade as a full-stack web dev, he crossed into info security &mdash; primarily on web and mobile app pen-testing, which is where he's stayed for the past couple years. Mic currently works as a Senior Security Consultant
+                for
+                <strong>Secure Ideas</strong>.
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="column">
+
+          <div class="card">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="/assets/images/lock.png" alt="Secure Ideas Logo">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">Secure Ideas</p>
+                  <p class="subtitle">
+                    <nav class="level">
+                      <div class="level-left">
+                        <div class="level-item">
+                          <span class="icon">
+                <i class="fas fa-globe"></span></i>
+                          <a href="https://www.secureideas.com">secureideas.com</a>
+                        </div>
+                      </div>
+                    </nav>
+                  </p>
+                </div>
+              </div>
+              <div class="content">
+                <p>Secure Ideas is an independent security-consulting and penetration testing firm focused on providing organizations with the services and knowledge needed to improve the security posture of their computing and network environment. Our services
+                  are designed to not just identify vulnerabilities, but to provide actionable recommendations and to promote a <em>Security State of Mind</em>.</p>
+
+                <p>
+                  The core of our service offerings is comprised of a talented team of Security Consultants and Penetration Testers who have experience with security assessments for networks, web applications, mobile apps, social engineering, physical security, embedded,
+                  wireless and more.
+                </p>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
 </body>
+
 </html>

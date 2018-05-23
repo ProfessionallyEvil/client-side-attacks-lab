@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "description": "Weak company application",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
 }
