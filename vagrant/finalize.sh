@@ -1,14 +1,16 @@
 #/bin/bash
 
 # Load all package dependencies
+cd /home/vagrant/targets/evilhacker.vlab
+yarn install && (setsid yarn start &)
 cd /home/vagrant/targets/help.vlab
 yarn install && (setsid yarn start &)
 cd /home/vagrant/targets/www.weakco.vlab
 yarn install && (setsid yarn start &)
 cd /home/vagrant/targets/api.weakco.vlab
 yarn install && (setsid yarn start &)
-cd /home/vagrant/targets/evilhacker.vlab
-yarn install && (setsid yarn start &)
+
+echo Waiting for targets to start && sleep 10 && echo Proceeding... 
 
 IPADDR="$(ip a | grep eth1 -A 2 | grep inet\ | cut -d " " -f 6 | cut -d "/" -f 1)"
 
