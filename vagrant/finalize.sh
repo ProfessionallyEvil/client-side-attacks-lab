@@ -10,11 +10,13 @@ yarn install && (setsid yarn start &)
 cd /home/vagrant/targets/api.weakco.vlab
 yarn install && (setsid yarn start &)
 
-echo Waiting for targets to start && sleep 10 && echo Proceeding... 
+echo Waiting for targets to start && sleep 10 && echo Proceeding...
 
 IPADDR="$(ip a | grep eth1 -A 2 | grep inet\ | cut -d " " -f 6 | cut -d "/" -f 1)"
 
-echo $IPADDR    www.weakco.vlab >> /home/vagrant/targets/help.vlab/public/host_entries.txt
+bash /vagrant/generators/gen_burp_conf.sh $IPADDR > /home/vagrant/targets/help.vlab/public/burpconf.json
+
+echo $IPADDR    www.weakco.vlab > /home/vagrant/targets/help.vlab/public/host_entries.txt
 echo $IPADDR    api.weakco.vlab >> /home/vagrant/targets/help.vlab/public/host_entries.txt
 echo $IPADDR    help.vlab >> /home/vagrant/targets/help.vlab/public/host_entries.txt
 echo $IPADDR    evilhacker.vlab >> /home/vagrant/targets/help.vlab/public/host_entries.txt
@@ -22,5 +24,9 @@ echo $IPADDR    evilhacker.vlab >> /home/vagrant/targets/help.vlab/public/host_e
 echo --------------------------
 echo Host-only IP is on: $IPADDR
 echo --------------------------
-echo If you need host file entries, navigate to:
-echo http://$IPADDR:3001/host_entries.txt
+echo The help page can be found at http://$IPADDR:3001
+echo The *Lab Environment* section contains links to
+echo Burp Suite config and hosts file entries, either of
+echo which can be used on your host machine to setup
+echo name resolution for the lab targets.
+echo ===========================
