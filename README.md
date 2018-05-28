@@ -47,7 +47,11 @@ Note that **your** host-only IP will likely be different the one in the above ex
 
 If those simple tests work, go back to the `/vagrant` subdirectory on the CLI and run `vagrant destroy` to trash the VM. Be sure to `git pull` the latest and run `vagrant up` again before class - I'm making Thursday at 7am the cut-off for any changes, so anytime after that should have the up-to-date class VM.
 
-If you encounter any errors, either [DM me on Twitter](https://twitter.com/mic_wg) or open an issue here on Github.
+
+
+## There are errors!
+
+If you encounter any errors in the form of the VM not coming up, or the items mentioned above being unavailable, either [DM me on Twitter](https://twitter.com/mic_wg) or open an issue here on Github.
 
 
 
