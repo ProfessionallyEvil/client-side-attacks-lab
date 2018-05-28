@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Weak Company</title>
+  <%- include('partials/headassets') %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="span8 offset2"><h1>Login</h1></div>
+    </div>
+    <% if(msg){ %>
+    <div class="row">
+    <div class="span4 offset4">
+      <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= msg %>
+      </div>
+  </div><% } %>
+  </div>
+  <div class="row">
+  <div class="span8 offset2">
+    <form method="POST" action="/login">
+  <fieldset>
+    <input type="hidden" name="redirectUrl" value="<%- redirectUrl %>">
+    <input name="username" type="text" value="<%= username %>" placeholder="Username"><br />
+    <input name="password" type="password" placeholder="Password">
+    <label class="checkbox">
+      <input name="rememberme" type="checkbox"> Remember Me
+    </label>
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+  </form>
+</div>
+</div>
+</div>
+      <%- include('partials/footer') %>
+</body>
+
+</html>
