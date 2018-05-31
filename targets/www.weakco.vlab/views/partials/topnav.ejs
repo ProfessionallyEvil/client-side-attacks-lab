@@ -1,10 +1,12 @@
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
-    <a class="brand" href="#">Title</a>
+    <a class="brand" href="#">WeakCo CryptoXchange</a>
     <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
+      <li class="<%- view === 'balance' ? 'active' : '' %>"><a href="/balance">Balance</a></li>
+      <li class="<%- view === 'transfer' ? 'active' : '' %>"><a href="/transfer">Transfer</a></li>
+      <li class="<%- view === 'profile' ? 'active' : '' %>"><a href="/profile">My Profile</a></li>
+      <li>|</li>
+      <li><a href="/logout">Logout</a></li>
     </ul>
   </div>
 </div>

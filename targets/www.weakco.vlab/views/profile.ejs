@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Weak Company</title>
+  <%- include('partials/headassets') %>
+</head>
+
+<body>
+  <%- include('partials/topnav') %>
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <h1>Profile &mdash; <%= user.username %></h1></div>
+      </div>
+      <% if(msg){ %>
+        <div class="row">
+          <div class="span4 offset4">
+            <div class="alert">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <%= msg %>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <div class="row">
+          <div class="span8 offset2">
+            <form method="POST" action="/profile">
+              <fieldset>
+                Blank fields will remain unchanged.<br />
+                <input name="email" type="text" value="<%= user.email %>" placeholder="New Email"><br />
+                <input name="password" type="password" placeholder="New Password"><br />
+                <input name="confirmpassword" type="password" placeholder="Confirm New Password"><br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

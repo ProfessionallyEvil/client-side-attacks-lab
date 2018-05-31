@@ -10,7 +10,8 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "nodemon": "^1.17.5"
+    "lokijs": "^1.5.5",
+    "nodemon": "^1.17.4"
   },
   "scripts": {
     "start": "nodemon index.js"

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Weak Company</title>
+  <%- include('partials/headassets') %>
+</head>
+
+<body>
+  <%- include('partials/topnav') %>
+    Hello
+    <%= user.username %>
+      <hr />
+      <div class="container">
+        <div class="row">
+          <div class="span8 offset2">
+            <form method="POST" action="/confirmTransfer">
+              <fieldset>
+                <p>Are you sure you want to transfer
+                  <%= transfer.amt %>
+                    <%= transfer.ccy %> to
+                      <%= recipient.username %>?</p>
+                <button type="submit" class="btn btn-success">Confirm</button><a href="#" class="btn btn-warning">Cancel</a>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+</body>
+
+</html>
