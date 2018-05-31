@@ -156,7 +156,7 @@ mydiv.append(target);
 
 The `form` encases the actual form controls, and specifies the HTTP method and the target URL via the action. The `input` elements are among those that present textboxes or hidden fields. Their *value* attribute specifies their content. Finally, a `button` with the type attribute of *submit* will be automatically wired to submit the form that it's a child of.
 
-
+<!-- TODO: Add *target* attribute -->
 
 > Exercise - Internet required:
 >
