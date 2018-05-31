@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Weak Company</title>
+  <%- include('partials/headassets') %>
+</head>
+
+<body>
+  <%- include('partials/topnav') %>
+    Hello
+    <%= user.username %>
+      <hr />
+      <div class="container">
+        <div class="row">
+          <div class="span8 offset2">
+            <form method="POST" action="/sendbyemail">
+              <fieldset>
+                <select name="currency">
+                  <%- !selectedCurrency ? '<option value="">--Select Currency--</option>' : '' %>
+                  <option value="btc" <%- selectedCurrency === 'btc' ? 'selected' : '' %>>BTC &ndash; <%= user.balance.btc %></option>
+                  <option value="ltc" <%- selectedCurrency === 'ltc' ? 'selected' : '' %>>LTC &ndash; <%= user.balance.ltc %></option>
+                </select><br />
+                <input name="amount" type="text" value="" placeholder="0.00"><br />
+                <input name="toemail" type="text" placeholder="recipient email"><br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+</body>
+
+</html>

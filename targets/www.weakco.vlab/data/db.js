@@ -35,5 +35,14 @@ exports.user = (() => {
       40.0
     )
   );
+  users.insert(
+    initUser('tarengetz', 'Hack me', 'tar.getz@email.vlab', 0.34, 13.0)
+  );
   return users;
+})();
+
+exports.emailTransfer = (() => {
+  let emailTransfers = db.addCollection('emailtransfer');
+  //{ id: guid, sender: userId, toAddress: string, curr: string, amount: number, confirmed: boolean, collected: boolean }
+  return emailTransfers;
 })();

@@ -146,7 +146,7 @@ mydiv.append(target);
 ## form, input, *and* button
 
 ```html
-<form method="POST" action="/login/php">
+<form method="POST" action="/login/php" target="_blank">
     <input type="text" name="username" placeholder="jdoe@email.com">
     <input type="password" name="pwd">
     <input type="hidden" value="foo">
@@ -154,9 +154,9 @@ mydiv.append(target);
 </form>
 ```
 
-The `form` encases the actual form controls, and specifies the HTTP method and the target URL via the action. The `input` elements are among those that present textboxes or hidden fields. Their *value* attribute specifies their content. Finally, a `button` with the type attribute of *submit* will be automatically wired to submit the form that it's a child of.
+The `form` encases the actual form controls, and specifies the HTTP method and the target URL via the action. Optionally, it can also specify the `target`, however this is not often needed in general-purpose web development. It's interesting for our purposes because it can target an iframe by specifying that iframe's `name` attribute. The `input` elements are among those that present textboxes or hidden fields. Their *value* attribute specifies their content. Finally, a `button` with the type attribute of *submit* will be automatically wired to submit the form that it's a child of.
 
-<!-- TODO: Add *target* attribute -->
+
 
 > Exercise - Internet required:
 >

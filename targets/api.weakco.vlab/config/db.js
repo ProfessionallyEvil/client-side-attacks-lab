@@ -46,23 +46,33 @@ exports.accounts = (function() {
   return accounts;
 })();
 
-exports.transactions = function() {
+exports.transactions = (function() {
   let transactions = db.addCollection('transactions');
-  //TODO: Use RNG to randomize transactions
   for (let i = 1; i < 20; i++) {
     transactions.insert({
       id: i,
-      accountId: acctId1,
-      amount: 10050,
-      dir: 'C'
+      accountId: getRandomInt() ? acctId1 : getRandomInt() ? acctId2 : acctId3,
+      amount: getRandomInt(10000),
+      dir: getRandomInt() ? 'C' : 'D'
     });
   }
-};
+  console.log('initialized transactions');
+  return transactions;
+})();
 
 exports.users = (function() {
   let users = db.addCollection('users');
   let user1 = User.create('jdoe@weakco.vlab', firstCompanyId);
   user1.password = 'Password';
   users.insert(user1);
+
+  let user2 = User.create('jdoe2@weakco.vlab', secondCompanyId);
+  user2.password = 'Password';
+  users.insert(user2);
+
   return users;
 })();
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

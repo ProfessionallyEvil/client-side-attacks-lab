@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>API Browser</title>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <p id="hostSelector"><input type="text" id="apihost" value="http://" /></div>
+    <div id="container">
+      <input type="text" id="username" value="jdoe@weakco.vlab" placeholder="Username"><br />
+      <input type="password" id="password" value="Password" placeholder="Password"><br />
+      <button id="loginButton">Login</button><button id="logoutButton">Logout</button>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('#loginButton').click(function() {
+          var username = $('#username').val();
+          var password = $('#password').val();
+
+          $.ajax({
+            type: "POST",
+            url: `${location.origin}/v1/authenticate`,
+            data: JSON.stringify({
+              username: username,
+              password: password
+            }),
+            success: function(res) {
+              alert(res.message);
+            },
+            dataType: 'json',
+            contentType: 'application/json'
+          });
+        });
+        $('#logoutButton').click(function() {
+          $.ajax({
+            type: "DELETE",
+            url: `${location.origin}/v1/authenticate`,
+            success: function(res) {
+              alert(res.message);
+            },
+            dataType: 'json',
+            contentType: 'application/json'
+          });
+        })
+      });
+    </script>
+</body>
+
+</html>

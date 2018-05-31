@@ -6,6 +6,12 @@ CSRF exploitation virtually always requires an element of social engineering. Th
 
 
 
-### Objective
+### Objective A
 
 Modify the proof-of-concept from the previous lab to hide the signs of malicious activity and instead present something fairly innocuous.
+
+
+
+### Objective B
+
+As the attacker, you need the victim to be authenticated or your attack will not have a session to leverage. There's an open-redirect flaw on the `/login` form. Find it and use it to construct a malicious link that ensures your victim is authenticated upon arriving to your CSRF form.

@@ -15,3 +15,4 @@ The `My Account` page in `www.weakco.vlab` has password change functionality. Wh
 ### Objective
 
  In this example, you will set up the basic functionality to steal an account through CSRF. This can be done with a simple HTML `form` and a submit button.
+

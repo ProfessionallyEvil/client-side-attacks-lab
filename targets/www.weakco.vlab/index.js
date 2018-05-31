@@ -6,6 +6,7 @@ const session = require('express-session');
 const LokiStore = require('connect-loki')(session);
 
 const db = require('./data/db');
+const uuid = require('uuid/v4');
 
 const auth = require('./middleware/requireauth');
 
@@ -36,7 +37,6 @@ app.get('/login', (req, res) => {
     username: req.query.username || '',
     redirectUrl: req.query.requrl || '/balance'
   };
-
   if (req.session.authenticated === true) {
     res.redirect(params.redirectUrl);
   } else {
@@ -87,7 +87,7 @@ app.get('/transfer/:ccy?', auth, (req, res) => {
 });
 
 app.post('/transfer', auth, (req, res) => {
-  //TODO: Add validation for tranfers
+  //TODO: Add validation for transfers
   req.session.transaction = {
     ccy: req.body.currency,
     amt: req.body.amount,
@@ -118,6 +118,43 @@ app.post('/confirmTransfer', auth, (req, res) => {
   } else {
     //TODO: Handle no valid transaction case
   }
+});
+
+app.get('/sendbyemail/:ccy?', auth, (req, res) => {
+  let params = {
+    user: req.session.user,
+    view: 'email',
+    selectedCurrency: req.params.ccy || null
+  };
+  res.render('email', params);
+});
+
+app.post('/sendbyemail', auth, (req, res) => {
+  let transactionId = uuid();
+  db.emailTransfer.insert({
+    id: transactionId,
+    sender: req.session.user.id,
+    toAddress: req.body.toemail,
+    amount: req.body.amount,
+    currency: req.body.currency,
+    confirmed: false,
+    collected: false
+  });
+  let params = {
+    view: 'email',
+    user: req.session.user,
+    transactionId: transactionId
+  };
+  res.render('confirmemail', params);
+});
+
+app.post('/confirmemail', auth, (req, res) => {
+  let transfer = db.emailTransfer.findOne({ id: req.body.transactionId });
+  transfer.confirmed = true;
+  req.session.user.balance[transfer.currency] -= transfer.amount;
+  db.emailTransfer.update(transfer);
+  db.user.update(req.session.user);
+  res.redirect('/balance');
 });
 
 app.get('/profile', auth, (req, res) => {
