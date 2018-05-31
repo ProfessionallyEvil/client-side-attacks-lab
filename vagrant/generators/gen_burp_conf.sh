@@ -26,6 +26,11 @@ cat << EOF
                     "enabled":true,
                     "hostname":"evilhacker.vlab",
                     "ip_address":"$1"
+                },
+                {
+                  "enabled":true,
+                  "hostname":"www.xn--wekco-hra.vlab",
+                  "ip_address":"$1"
                 }
             ]
         }
