@@ -1,15 +1,13 @@
 # Awesome Client-Side Attacks
 This is the the lab environment for teaching multi-host web-based attacks
 
-**STATUS** - Work in progress
+**STATUS** - Completeish
 
-If you're here to grab the lab VM for Circle City Con 2018, the bad news is that it's not quite ready yet. I always try to get the labs out ~1 week before the class. This one is running behind schedule.
-
-*However*, the technical elements are far enough along that you can test your system to make sure there won't be any issues running the final build.
+If you're here to grab the lab VM for Circle City Con 2018, the technical elements of this are currently as they will be for class. It has some rough spots, but it will do for our particular needs. A few of the handouts have yet to be written, but they'll be available on USB drives at the class, as well a copy of the OVA for the VM.
 
 
 
-## Doing a pre-class system test
+## Setting up for CircleCityCon
 
 The setup that I recommend is as follows:
 
@@ -45,7 +43,7 @@ The setup that I recommend is as follows:
 
 Note that **your** host-only IP will likely be different the one in the above example. Check that the `burpconf.json` or `host_entries.txt` is in fact being served on port 3001. Also, request test.txt on port 3007 of the same host, e.g. `http://172.28.128.30:3007/test.txt` for the above IP. This should print a _helloworld_ message from the file in the `/payloads` subdirectory of the project.
 
-If those simple tests work, go back to the `/vagrant` subdirectory on the CLI and run `vagrant destroy` to trash the VM. Be sure to `git pull` the latest and run `vagrant up` again before class - I'm making Thursday at 7am the cut-off for any changes, so anytime after that should have the up-to-date class VM.
+If there are any problems, I can troubleshoot at the start of class or a few minutes before.
 
 
 
