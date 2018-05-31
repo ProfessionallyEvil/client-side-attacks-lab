@@ -1,5 +1,5 @@
-const db = require("../config/db");
-const uuid = require("uuid/v4");
+const db = require('../config/db');
+const uuid = require('uuid/v4');
 
 exports.user_create_post = (req, res) => {
   db.users.insert({
@@ -7,7 +7,7 @@ exports.user_create_post = (req, res) => {
     username: req.body.username,
     password: req.body.password
   });
-  res.json({ status: 200, message: "Created" });
+  res.json({ status: 200, message: 'Created' });
 };
 
 exports.user_list_get = (req, res) => {
