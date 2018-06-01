@@ -57,3 +57,24 @@ Note that in this example, the `console.log` function is being supplied as the o
 
 jQuery is perhaps the most widely-used JavaScript library to date. It is primarily a library for simplifying DOM manipulation, which has been dwindling in relevance.  However, it also contains simplified functions that leverage the built-in `XMLHttpRequest` API to perform the same sort of asynchronous requests, while smoothing over many of the cross-browser issues that historically plagued developers using AJAX. It also has short-hand functions and global settings that can make it a very concise option, roughly equal to `fetch` but with vastly superior legacy browser support.
 
+The main implementation is `$.ajax`, as show below:
+
+```javascript
+$.ajax({
+    url: 'https://myserver/data',
+    xhrFields: {
+        withCredentials: true
+    }
+}).done(function(response) {
+  //do something  
+});
+```
+
+This supports numerous different configuration options, and a variety of event hooks such as the `beforeSend` event that lets you take action immediately before sending.
+
+For simpler operations, there also also `$.get` and `$.post` shorthand aliases. Under the hood they fill in some of the configuration and use the `$.ajax` function. Here's an example of a simple GET.
+
+```javascript
+$.get('https://myserver/data', function(res){ /*Do something */})
+```
+
