@@ -6,9 +6,10 @@
   "author": "Mic Whitehorn-Gillam",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.5"
   },
   "scripts": {
     "start": "nodemon index.js"
