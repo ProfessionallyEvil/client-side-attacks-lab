@@ -2,8 +2,129 @@
 <html>
 <head>
   <title>CORS Demo</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/bulma.min.css" />
 </head>
 <body>
-  <h1>CORS Demo Client</h1>
+  <section class="hero is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          CORS
+        </h1>
+        <h2 class="subtitle">
+          Cross-origin Resource Sharing
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section has-background-light">
+    <div class="container">
+<div class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">http://</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input class="input is-rounded is-normal" type="email" placeholder="API Host/Port">
+          </p>
+        </div>
+    </div>
+          </div>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <div class="tabs is-toggle is-toggle-rounded">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span>Same-Origin</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span>Reflected</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span>Regex</span>
+      </a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </div>
+      </div></div>
+</section>
+  <div class="section">
+  <div class="content">
+<div class="columns">
+  <div class="column">
+    <h4 class="subtitle">Requests</h2>
+      <p>
+      <div class="card">
+        <header class="card-header has-background-dark is-bold">
+<div class="level">
+          <div class="level-item"><h4 class="subtitle has-text-light">Login</h4></div>
+        </div>
+        </header>
+        <div class="card-content has-background-light">
+          Set the cookie-based session.
+          <input class="input" type="text" placeholder="Username">
+          <input class="input" type="password" placeholder="Password">
+        </div>
+        <footer class="card-footer has-background-light">
+          <a class="button is-link">Send</a>
+        </footer>
+      </div>
+    </p>
+      <p>
+      <div class="card">
+        <header class="card-header has-background-dark is-bold">
+<div class="level">
+          <div class="level-item"><h4 class="subtitle has-text-light">List Items</h4></div>
+        </div>
+        </header>
+        <div class="card-content has-background-light">
+          Get a list of all the persisted items.
+        </div>
+        <footer class="card-footer has-background-light">
+          <a class="button is-link">Send</a>
+        </footer>
+      </div>
+    </p>
+      <div class="card">
+        <!-- Create Item -->
+      </div>
+      <div class="card">
+        <!-- Get Item Details -->
+      </div>
+      <div class="card">
+        <!-- Update Item -->
+      </div>
+      <div class="card">
+        <!-- Delete Item -->
+      </div>
+  </div><div class="column">
+<h4 class="subtitle">Response</h2>
+  <div class="control">
+  <textarea class="textarea" type="text" placeholder="Response object" readonly></textarea>
+</div>
+</div>
+  </div>
+</div>
+<!-- Functional elements
+ - Toggle button
+ - Querystring API Url with Default
+-->
+
 </body>
 </html>
