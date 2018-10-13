@@ -149,6 +149,179 @@
 			]
 		},
 		{
+			"name": "pattern",
+			"description": "",
+			"item": [
+				{
+					"name": "List Objects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "origin",
+								"value": "http://client.app"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/pattern/object",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pattern",
+								"object"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Chair\",\n\t\"style\": \"Dining\",\n\t\"legs\": 4\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/pattern/object",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pattern",
+								"object"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Object",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/pattern/object/:uid",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pattern",
+								"object",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "72995680-12f6-497c-82c0-4fa3be74cb53"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preflight",
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "origin",
+								"value": "http://client.app"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/pattern/object",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pattern",
+								"object"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Object",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Chair\",\n\t\"style\": \"Dining\",\n\t\"legs\": 3\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/pattern/object/:uid",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pattern",
+								"object",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "09228a22-0d08-41db-9961-32f83869f937"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Object",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/pattern/object/:uid",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pattern",
+								"object",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "72995680-12f6-497c-82c0-4fa3be74cb53"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
