@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "10284db4-2f4e-444a-88e2-cdfc38dd0685",
+		"name": "Cors.dem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sop",
+			"description": "",
+			"item": [
+				{
+					"name": "List Objects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/sop/object",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sop",
+								"object"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Chair\",\n\t\"style\": \"Dining\",\n\t\"legs\": 4\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/sop/object",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sop",
+								"object"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Object",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/sop/object/:uid",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sop",
+								"object",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "72995680-12f6-497c-82c0-4fa3be74cb53"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Object",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Chair\",\n\t\"style\": \"Dining\",\n\t\"legs\": 3\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/sop/object/:uid",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sop",
+								"object",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "09228a22-0d08-41db-9961-32f83869f937"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Object",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/sop/object/:uid",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sop",
+								"object",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "72995680-12f6-497c-82c0-4fa3be74cb53"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://client.cors.dem"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"micwg\",\n\t\"password\": \"blah!\"\n}"
+				},
+				"url": {
+					"raw": "http://{{host}}/auth/login",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{host}}/auth/logout",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

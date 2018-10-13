@@ -1,0 +1,19 @@
+{
+  "name": "cors.dem",
+  "version": "1.0.0",
+  "description": "CORS demo server",
+  "main": "index.js",
+  "author": "mgillam",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "lokijs": "^1.5.5",
+    "nodemon": "^1.18.4",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}
