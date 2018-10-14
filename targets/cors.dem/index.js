@@ -9,7 +9,7 @@ const client = express();
 const apiHttpPort = 3020;
 const clientHttpPort = 3021;
 
-api.use(express.json());
+api.use(express.json({ type: "*/*" }));
 api.use(cookieParser());
 
 client.use(express.static("client"));
@@ -18,6 +18,7 @@ client.use(express.static("client"));
 api.use("/auth", require("./server/routes/auth"));
 api.use("/sop", require("./server/routes/sop"));
 api.use("/pattern", require("./server/routes/pattern"));
+api.use("/reflect", require("./server/routes/reflect"));
 
 api.listen(apiHttpPort, () =>
   console.log(`cors.dem server listening on port ${apiHttpPort}`)

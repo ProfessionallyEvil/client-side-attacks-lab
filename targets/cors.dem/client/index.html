@@ -79,11 +79,11 @@
       </header>
       <div class="card-content has-background-light">
         Set the cookie-based session.
-        <input class="input" type="text" placeholder="Username">
-        <input class="input" type="password" placeholder="Password">
+        <input class="input" id="postAuthUsername" type="text" placeholder="Username">
+        <input class="input" id="postAuthPassword" type="password" placeholder="Password">
       </div>
       <footer class="card-footer has-background-light">
-        <a class="button is-link">Send</a>
+        <a class="button is-link" href="javascript:_apiActions.postAuth();">Send</a>
       </footer>
     </div>
     </p>
@@ -99,7 +99,7 @@
           Get a list of all the persisted items.
         </div>
         <footer class="card-footer has-background-light">
-          <a class="button is-link">Send</a>
+          <a class="button is-link" href="javascript:_apiActions.listObjects()">Send</a>
         </footer>
       </div>
     </p>
@@ -114,11 +114,11 @@
         <div class="card-content has-background-light">
           Create a new item in the database.
           <div class="control">
-            <textarea class="textarea" type="text" placeholder="JSON structure"></textarea>
+            <textarea class="textarea" id="insertObjectJson" type="text" placeholder="JSON structure"></textarea>
           </div>
         </div>
         <footer class="card-footer has-background-light">
-          <a class="button is-link">Send</a>
+          <a class="button is-link" href="javascript:_apiActions.insertObject();">Send</a>
         </footer>
       </div>
     </p>
@@ -132,10 +132,10 @@
         </header>
         <div class="card-content has-background-light">
           Get detailed item record.
-          <input class="input" type="text" placeholder="UID" />
+          <input class="input" id="getObjectUid" type="text" placeholder="UID" />
         </div>
         <footer class="card-footer has-background-light">
-          <a class="button is-link">Send</a>
+          <a class="button is-link" href="javascript:_apiActions.getObjectDetails();">Send</a>
         </footer>
       </div>
     </p>
@@ -179,7 +179,7 @@
   <div class="column">
     <h4 class="subtitle">Response</h2>
   <div class="control">
-  <textarea class="textarea" type="text" placeholder="Response object" readonly></textarea>
+  <textarea class="textarea" id="responseBox" type="text" placeholder="Response object" readonly></textarea>
 </div>
 </div>
   </div>
@@ -211,6 +211,49 @@
       }
     }
   })();
+
+  function updateResponseBox(content) {
+    document.getElementById('responseBox').value = content.target.response;
+  }
+
+  let _apiActions = {
+    postAuth: function() {
+      let body = {
+        username: document.getElementById('postAuthUsername').value,
+        password: document.getElementById('postAuthPassword').value
+      }
+
+      let req = new XMLHttpRequest();
+      req.addEventListener("load", updateResponseBox);
+      req.open('POST', `http:\\\\${_apiUrl.get()}\\auth\\login`);
+      req.withCredentials = true;
+      req.send(JSON.stringify(body));
+    },
+    listObjects: function() {
+      let req = new XMLHttpRequest();
+      req.addEventListener("load", updateResponseBox);
+      req.open('GET', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object?ts=${Date.now()}`);
+      req.withCredentials = true;
+      req.send();
+    },
+    insertObject: function() {
+      let payload = JSON.stringify(JSON.parse(document.getElementById('insertObjectJson').value));
+      let req = new XMLHttpRequest();
+      req.addEventListener("load", updateResponseBox);
+      req.open('POST', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object`);
+      req.withCredentials = true;
+      req.send(payload);
+    },
+    getObjectDetails: function() {
+      let req = new XMLHttpRequest();
+      let uid = document.getElementById('getObjectUid').value;
+      req.addEventListener("load", updateResponseBox);
+      req.open('GET', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object\\${uid}?ts=${Date.now()}`);
+      req.withCredentials = true;
+      req.send();
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function(event) {
 
     let corsTabRegex = document.getElementById('corsTab_regex');
