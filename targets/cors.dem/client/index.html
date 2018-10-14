@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>CORS Demo</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/css/bulma.min.css" />
 </head>
+
 <body>
   <section class="hero is-dark is-bold">
     <div class="hero-body">
@@ -13,85 +15,85 @@
           CORS
         </h1>
         <h2 class="subtitle">
-          Cross-origin Resource Sharing
+          Cross-Origin Resource Sharing - Demonstation
         </h2>
       </div>
     </div>
   </section>
-
-
   <section class="section has-background-light">
     <div class="container">
-<div class="level">
-  <div class="level-left">
-    <div class="level-item">
-      <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">http://</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <p class="control">
-            <input class="input is-rounded is-normal" type="email" placeholder="API Host/Port">
-          </p>
-        </div>
-    </div>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">http://</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control">
+                    <input class="input is-rounded is-normal" id="apiUrlTextbox" type="email" placeholder="API Host/Port">
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <div class="tabs is-toggle is-toggle-rounded">
+              <ul>
+                <li class="is-active" id="corsTab_sop" name="corsTabs">
+                  <a>
+                    <span>Same-Origin</span>
+                  </a>
+                </li>
+                <li id="corsTab_reflected" name="corsTabs">
+                  <a>
+                    <span>Reflected</span>
+                  </a>
+                </li>
+                <li id="corsTab_regex" name="corsTabs">
+                  <a>
+                    <span>Regex</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="level-right">
-    <div class="level-item">
-      <div class="tabs is-toggle is-toggle-rounded">
-  <ul>
-    <li class="is-active">
-      <a>
-        <span>Same-Origin</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span>Reflected</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span>Regex</span>
-      </a>
-    </li>
-  </ul>
-</div>
-    </div>
-  </div>
-      </div></div>
-</section>
+  </section>
   <div class="section">
-  <div class="content">
-<div class="columns">
-  <div class="column">
-    <h4 class="subtitle">Requests</h2>
+    <div class="content">
+      <div class="columns">
+        <div class="column">
+          <h4 class="subtitle">Requests</h2>
       <p>
       <div class="card">
         <header class="card-header has-background-dark is-bold">
 <div class="level">
           <div class="level-item"><h4 class="subtitle has-text-light">Login</h4></div>
-        </div>
-        </header>
-        <div class="card-content has-background-light">
-          Set the cookie-based session.
-          <input class="input" type="text" placeholder="Username">
-          <input class="input" type="password" placeholder="Password">
-        </div>
-        <footer class="card-footer has-background-light">
-          <a class="button is-link">Send</a>
-        </footer>
       </div>
+      </header>
+      <div class="card-content has-background-light">
+        Set the cookie-based session.
+        <input class="input" type="text" placeholder="Username">
+        <input class="input" type="password" placeholder="Password">
+      </div>
+      <footer class="card-footer has-background-light">
+        <a class="button is-link">Send</a>
+      </footer>
+    </div>
     </p>
-      <p>
+    <p>
       <div class="card">
         <header class="card-header has-background-dark is-bold">
-<div class="level">
-          <div class="level-item"><h4 class="subtitle has-text-light">List Items</h4></div>
-        </div>
+          <div class="level">
+            <div class="level-item">
+              <h4 class="subtitle has-text-light">List Items</h4></div>
+          </div>
         </header>
         <div class="card-content has-background-light">
           Get a list of all the persisted items.
@@ -101,30 +103,159 @@
         </footer>
       </div>
     </p>
+    <p>
       <div class="card">
-        <!-- Create Item -->
+        <header class="card-header has-background-dark is-bold">
+          <div class="level">
+            <div class="level-item">
+              <h4 class="subtitle has-text-light">Create Item</h4></div>
+          </div>
+        </header>
+        <div class="card-content has-background-light">
+          Create a new item in the database.
+          <div class="control">
+            <textarea class="textarea" type="text" placeholder="JSON structure"></textarea>
+          </div>
+        </div>
+        <footer class="card-footer has-background-light">
+          <a class="button is-link">Send</a>
+        </footer>
       </div>
+    </p>
+    <p>
       <div class="card">
-        <!-- Get Item Details -->
+        <header class="card-header has-background-dark is-bold">
+          <div class="level">
+            <div class="level-item">
+              <h4 class="subtitle has-text-light">Read Item Details</h4></div>
+          </div>
+        </header>
+        <div class="card-content has-background-light">
+          Get detailed item record.
+          <input class="input" type="text" placeholder="UID" />
+        </div>
+        <footer class="card-footer has-background-light">
+          <a class="button is-link">Send</a>
+        </footer>
       </div>
+    </p>
+    <p>
       <div class="card">
+        <header class="card-header has-background-dark is-bold">
+          <div class="level">
+            <div class="level-item">
+              <h4 class="subtitle has-text-light">Update Item</h4></div>
+          </div>
+        </header>
         <!-- Update Item -->
+        <div class="card-content has-background-light">
+          Replace existing item with new content.
+          <input class="input" type="text" placeholder="UID" />
+          <textarea class="textarea" type="text" placeholder="JSON structure"></textarea>
+        </div>
+        <footer class="card-footer has-background-light">
+          <a class="button is-link">Send</a>
+        </footer>
       </div>
+    </p>
+    <p>
       <div class="card">
-        <!-- Delete Item -->
+        <header class="card-header has-background-dark is-bold">
+          <div class="level">
+            <div class="level-item">
+              <h4 class="subtitle has-text-light">Delete Item</h4></div>
+          </div>
+        </header>
+        <div class="card-content has-background-light">
+          Delete existing item from the database.
+          <input class="input" type="text" placeholder="UID" />
+        </div>
+        <footer class="card-footer has-background-light">
+          <a class="button is-link">Send</a>
+        </footer>
       </div>
-  </div><div class="column">
-<h4 class="subtitle">Response</h2>
+    </p>
+  </div>
+  <div class="column">
+    <h4 class="subtitle">Response</h2>
   <div class="control">
   <textarea class="textarea" type="text" placeholder="Response object" readonly></textarea>
 </div>
 </div>
   </div>
 </div>
-<!-- Functional elements
- - Toggle button
- - Querystring API Url with Default
--->
 
+  <script type="text/javascript">
+  let _corsPolicy = (function(){
+    let currentPolicy = 'sop';
+    return {
+      set: function(val) {
+        currentPolicy = val;
+      },
+      get: function() {
+        return currentPolicy;
+      }
+    }
+  })();
+  let _apiUrl = (function() {
+    let textbox = document.getElementById('apiUrlTextbox');
+    let currentApiUrl = 'api.cors.dem';
+    textbox.value = currentApiUrl;
+    return {
+      set: function(val) {
+        textbox.value = val;
+        currentApiUrl = val;
+      },
+      get: function() {
+        return currentApiUrl;
+      }
+    }
+  })();
+  document.addEventListener("DOMContentLoaded", function(event) {
+
+    let corsTabRegex = document.getElementById('corsTab_regex');
+    let corsTabSop = document.getElementById('corsTab_sop');
+    let corsTabReflected = document.getElementById('corsTab_reflected');
+
+    let tabGroup = document.getElementsByName('corsTabs');
+
+    corsTabRegex.addEventListener('click', (function(tab, group) {
+        return function() {
+          Array.from(group).map((item) => {
+            item.classList.remove('is-active');
+          });
+          tab.classList.add('is-active');
+          _corsPolicy.set('pattern');
+        }
+    })(corsTabRegex, tabGroup));
+
+    corsTabSop.addEventListener('click', (function(tab, group) {
+        return function() {
+          Array.from(group).map((item) => {
+            item.classList.remove('is-active');
+          });
+          tab.classList.add('is-active');
+          _corsPolicy.set('sop');
+        }
+    })(corsTabSop, tabGroup));
+
+    corsTabReflected.addEventListener('click', (function(tab, group) {
+        return function() {
+          Array.from(group).map((item) => {
+            item.classList.remove('is-active');
+          });
+          tab.classList.add('is-active');
+          _corsPolicy.set('reflect');
+        }
+    })(corsTabReflected, tabGroup));
+
+    if(document.location.search.length > 1) {
+      let queryString = document.location.search.substring(1).split('&').reduce((ars, ar) => { let ar1 = ar.split('='); ars[ar1[0]] = ar1[1]; return ars}, {});
+      if(queryString.apiUrl) {
+        _apiUrl.set(queryString.apiUrl);
+      }
+    }
+  });
+  </script>
 </body>
 </html>
