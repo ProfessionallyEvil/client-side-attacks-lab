@@ -150,11 +150,11 @@
         <!-- Update Item -->
         <div class="card-content has-background-light">
           Replace existing item with new content.
-          <input class="input" type="text" placeholder="UID" />
-          <textarea class="textarea" type="text" placeholder="JSON structure"></textarea>
+          <input class="input" type="text" id="updateObjectUid" placeholder="UID" />
+          <textarea class="textarea" type="text" id="updateObjectJson" placeholder="JSON structure"></textarea>
         </div>
         <footer class="card-footer has-background-light">
-          <a class="button is-link">Send</a>
+          <a class="button is-link" href="javascript:_apiActions.updateObject();">Send</a>
         </footer>
       </div>
     </p>
@@ -168,10 +168,10 @@
         </header>
         <div class="card-content has-background-light">
           Delete existing item from the database.
-          <input class="input" type="text" placeholder="UID" />
+          <input class="input" type="text" id="deleteObjectUid" placeholder="UID" />
         </div>
         <footer class="card-footer has-background-light">
-          <a class="button is-link">Send</a>
+          <a class="button is-link" href="javascript:_apiActions.deleteObject();">Send</a>
         </footer>
       </div>
     </p>
@@ -249,6 +249,23 @@
       let uid = document.getElementById('getObjectUid').value;
       req.addEventListener("load", updateResponseBox);
       req.open('GET', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object\\${uid}?ts=${Date.now()}`);
+      req.withCredentials = true;
+      req.send();
+    },
+    updateObject: function() {
+      let req = new XMLHttpRequest();
+      let payload = JSON.stringify(JSON.parse(document.getElementById('updateObjectJson').value));
+      let uid = document.getElementById('updateObjectUid').value;
+      req.addEventListener("load", updateResponseBox);
+      req.open('PUT', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object\\${uid}`);
+      req.withCredentials = true;
+      req.send(payload);
+    },
+    deleteObject: function() {
+      let req = new XMLHttpRequest();
+      let uid = document.getElementById('deleteObjectUid').value;
+      req.addEventListener("load", updateResponseBox);
+      req.open('DELETE', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object\\${uid}`);
       req.withCredentials = true;
       req.send();
     }
