@@ -8,7 +8,7 @@ const sessionBouncer = require("../middleware/cookieSessionBouncer");
 const dataCtrlr = require("../controllers/data");
 
 const cors_options = {
-  origin: /client\.app$/,
+  origin: /cors\.dem$/,
   methods: "GET,POST,PUT,DELETE",
   credentials: true
 };
