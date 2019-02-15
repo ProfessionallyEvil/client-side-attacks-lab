@@ -32,7 +32,7 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control">
-                    <input class="input is-rounded is-normal" id="apiUrlTextbox" type="email" placeholder="API Host/Port">
+                    <input class="input is-rounded is-normal" id="apiUrlTextbox" type="text" data-tippy="For repointing the API hostname." data-tippy-arrow="true" data-tippy-distance="15"  placeholder="API Host/Port">
                   </p>
                 </div>
               </div>
@@ -44,17 +44,17 @@
             <div class="tabs is-toggle is-toggle-rounded">
               <ul>
                 <li class="is-active" id="corsTab_sop" name="corsTabs">
-                  <a>
+                  <a data-tippy="No CORS Policy at all. SOP will be enforced." data-tippy-arrow="true" data-tippy-distance="30">
                     <span>Same-Origin</span>
                   </a>
                 </li>
                 <li id="corsTab_reflected" name="corsTabs">
-                  <a>
+                  <a data-tippy="All origins are reflected into the CORS policy." data-tippy-arrow="true" data-tippy-distance="30">
                     <span>Reflected</span>
                   </a>
                 </li>
                 <li id="corsTab_regex" name="corsTabs">
-                  <a>
+                  <a data-tippy="A pattern is used to decide whether the origin should be reflected. This pattern has a flaw." data-tippy-arrow="true" data-tippy-distance="30">
                     <span>Regex</span>
                   </a>
                 </li>
@@ -78,7 +78,7 @@
       </div>
       </header>
       <div class="card-content has-background-light">
-        Set the cookie-based session.
+        <b>Set the cookie-based session.</b> This particular endpoint is set to always reflect the origin. Any creds will work.
         <input class="input" id="postAuthUsername" type="text" placeholder="Username">
         <input class="input" id="postAuthPassword" type="password" placeholder="Password">
       </div>
@@ -96,7 +96,7 @@
           </div>
         </header>
         <div class="card-content has-background-light">
-          Get a list of all the persisted items.
+          <b>Get a list of all the persisted items.</b> This will start as an empty array. Returns UIDs that can be used to look up detail records.
         </div>
         <footer class="card-footer has-background-light">
           <a class="button is-link" href="javascript:_apiActions.listObjects()">Send</a>
@@ -112,7 +112,7 @@
           </div>
         </header>
         <div class="card-content has-background-light">
-          Create a new item in the database.
+          <b>Create a new item in the database.</b> Any valid JSON, but must have a <i>name</i> attribute.
           <div class="control">
             <textarea class="textarea" id="insertObjectJson" type="text" placeholder="JSON structure"></textarea>
           </div>
@@ -131,7 +131,7 @@
           </div>
         </header>
         <div class="card-content has-background-light">
-          Get detailed item record.
+          <b>Get detailed item record.</b> Will include any custom attributes, as well as LokiDB metadata.
           <input class="input" id="getObjectUid" type="text" placeholder="UID" />
         </div>
         <footer class="card-footer has-background-light">
@@ -149,7 +149,7 @@
         </header>
         <!-- Update Item -->
         <div class="card-content has-background-light">
-          Replace existing item with new content.
+          <b>Replace existing item with new content.</b> As a full replacement, this must still inlcude the <i>name</i> attribute.
           <input class="input" type="text" id="updateObjectUid" placeholder="UID" />
           <textarea class="textarea" type="text" id="updateObjectJson" placeholder="JSON structure"></textarea>
         </div>
@@ -167,7 +167,7 @@
           </div>
         </header>
         <div class="card-content has-background-light">
-          Delete existing item from the database.
+          <b>Delete existing item from the database.</b>
           <input class="input" type="text" id="deleteObjectUid" placeholder="UID" />
         </div>
         <footer class="card-footer has-background-light">
@@ -176,15 +176,19 @@
       </div>
     </p>
   </div>
-  <div class="column">
+  <div id="responseColumn" class="column">
     <h4 class="subtitle">Response</h2>
   <div class="control">
   <textarea class="textarea" id="responseBox" type="text" placeholder="Response object" readonly></textarea>
+  <footer class="card-footer has-background-light">
+    <a class="button is-danger" href="javascript:clearResponseBox();" data-tippy="Clear the response textbox." data-tippy-delay="[500, 0]" data-tippy-arrow="true">Clear</a>
+  </footer>
 </div>
 </div>
   </div>
 </div>
-
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/tippy.min.js"></script>
   <script type="text/javascript">
   let _corsPolicy = (function(){
     let currentPolicy = 'sop';
@@ -216,6 +220,14 @@
     document.getElementById('responseBox').value = content.target.response;
   }
 
+  function showRequestError(event) {
+    document.getElementById('responseBox').value = 'There was some sort of request error. Check your developer console.';
+  }
+
+  function clearResponseBox() {
+    document.getElementById('responseBox').value = '';
+  }
+
   let _apiActions = {
     postAuth: function() {
       let body = {
@@ -232,6 +244,7 @@
     listObjects: function() {
       let req = new XMLHttpRequest();
       req.addEventListener("load", updateResponseBox);
+      req.addEventListener("error", showRequestError);
       req.open('GET', `http:\\\\${_apiUrl.get()}\\${_corsPolicy.get()}\\object?ts=${Date.now()}`);
       req.withCredentials = true;
       req.send();
@@ -278,6 +291,11 @@
     let corsTabReflected = document.getElementById('corsTab_reflected');
 
     let tabGroup = document.getElementsByName('corsTabs');
+
+    document.getElementById('apiUrlTextbox').addEventListener('blur', (event) => {
+        _apiUrl.set(event.target.value);
+        alert(`Updated API server to ${event.target.value}`);
+    });
 
     corsTabRegex.addEventListener('click', (function(tab, group) {
         return function() {
