@@ -74,7 +74,7 @@
       <div class="card">
         <header class="card-header has-background-dark is-bold">
 <div class="level">
-          <div class="level-item"><h4 class="subtitle has-text-light">Login</h4></div>
+          <div class="level-item"><h4 class="subtitle has-text-light">Login <span class="tag is-info is-rounded">POST</span></h4></div>
       </div>
       </header>
       <div class="card-content has-background-light">
@@ -92,7 +92,7 @@
         <header class="card-header has-background-dark is-bold">
           <div class="level">
             <div class="level-item">
-              <h4 class="subtitle has-text-light">List Items</h4></div>
+              <h4 class="subtitle has-text-light">List Items <span class="tag is-success is-rounded">GET</span></h4></div>
           </div>
         </header>
         <div class="card-content has-background-light">
@@ -108,13 +108,13 @@
         <header class="card-header has-background-dark is-bold">
           <div class="level">
             <div class="level-item">
-              <h4 class="subtitle has-text-light">Create Item</h4></div>
+              <h4 class="subtitle has-text-light">Create Item <span class="tag is-info is-rounded">POST</span></h4></div>
           </div>
         </header>
         <div class="card-content has-background-light">
           <b>Create a new item in the database.</b> Any valid JSON, but must have a <i>name</i> attribute.
           <div class="control">
-            <textarea class="textarea" id="insertObjectJson" type="text" placeholder="JSON structure"></textarea>
+            <textarea class="textarea" id="insertObjectJson" type="text" placeholder="{&NewLine;  &quot;name&quot;: &quot;Nathan&quot;,&NewLine;  &quot;title&quot;: &quot;Mail Room Technician&quot;&NewLine;}"></textarea>
           </div>
         </div>
         <footer class="card-footer has-background-light">
@@ -127,7 +127,7 @@
         <header class="card-header has-background-dark is-bold">
           <div class="level">
             <div class="level-item">
-              <h4 class="subtitle has-text-light">Read Item Details</h4></div>
+              <h4 class="subtitle has-text-light">Read Item Details <span class="tag is-success is-rounded">GET</span></h4></div>
           </div>
         </header>
         <div class="card-content has-background-light">
@@ -144,14 +144,15 @@
         <header class="card-header has-background-dark is-bold">
           <div class="level">
             <div class="level-item">
-              <h4 class="subtitle has-text-light">Update Item</h4></div>
+              <h4 class="subtitle has-text-light">Update Item <span class="tag is-warning is-rounded">PUT</span></h4>
+            </div>
           </div>
         </header>
         <!-- Update Item -->
         <div class="card-content has-background-light">
           <b>Replace existing item with new content.</b> As a full replacement, this must still inlcude the <i>name</i> attribute.
           <input class="input" type="text" id="updateObjectUid" placeholder="UID" />
-          <textarea class="textarea" type="text" id="updateObjectJson" placeholder="JSON structure"></textarea>
+          <textarea class="textarea" type="text" id="updateObjectJson" placeholder="{&NewLine;  &quot;name&quot;: &quot;Nathan&quot;,&NewLine;  &quot;title&quot;: &quot;Mail Room Technician&quot;&NewLine;}"></textarea>
         </div>
         <footer class="card-footer has-background-light">
           <a class="button is-link" href="javascript:_apiActions.updateObject();">Send</a>
@@ -163,7 +164,7 @@
         <header class="card-header has-background-dark is-bold">
           <div class="level">
             <div class="level-item">
-              <h4 class="subtitle has-text-light">Delete Item</h4></div>
+              <h4 class="subtitle has-text-light">Delete Item <span class="tag is-danger is-rounded">DELETE</span></h4></div>
           </div>
         </header>
         <div class="card-content has-background-light">
@@ -217,7 +218,7 @@
   })();
 
   function updateResponseBox(content) {
-    document.getElementById('responseBox').value = content.target.response;
+    content.target.response;
   }
 
   function showRequestError(event) {
